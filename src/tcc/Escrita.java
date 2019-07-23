@@ -21,9 +21,7 @@ public class Escrita {
         PrintWriter EscreverContrato = new PrintWriter(ContratoInteligente);
  
         EscreverContrato.printf("pragma solidity ^0.4.11;\n");
-        EscreverContrato.printf("\n");
         EscreverContrato.printf("contract EstudoDeCaso {\n");
-        EscreverContrato.printf("\n");
         for(int i = 0; i < Analise.PartesEnvolvidas.size(); i++){
             EscreverContrato.printf("  address " + Analise.PartesEnvolvidas.get(i) + ";\n");
         }
