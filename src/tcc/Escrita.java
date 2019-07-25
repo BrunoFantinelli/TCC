@@ -28,7 +28,7 @@ public class Escrita {
         }
         
         for(int i = 0; i < Analise.PartesEnvolvidas.size(); i++){
-            EscreverContrato.print("modifier only" + Analise.PartesEnvolvidas.get(i) + "(){\n");
+            EscreverContrato.print("modifier only" + Analise.PartesEnvolvidas.get(i).toString().toUpperCase() + "(){\n");
             EscreverContrato.print("\trequire(msg.sender == " + Analise.PartesEnvolvidas.get(i) + ");\n");
             EscreverContrato.print("\t_;\n");
             EscreverContrato.print("}\n");
