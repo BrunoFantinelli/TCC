@@ -22,8 +22,16 @@ public class Escrita {
  
         EscreverContrato.printf("pragma solidity ^0.4.11;\n");
         EscreverContrato.printf("contract EstudoDeCaso {\n");
+        
         for(int i = 0; i < Analise.PartesEnvolvidas.size(); i++){
-            EscreverContrato.printf("  address " + Analise.PartesEnvolvidas.get(i) + ";\n");
+            EscreverContrato.printf("\taddress " + Analise.PartesEnvolvidas.get(i) + ";\n");
+        }
+        
+        for(int i = 0; i < Analise.PartesEnvolvidas.size(); i++){
+            EscreverContrato.print("modifier only" + Analise.PartesEnvolvidas.get(i) + "(){\n");
+            EscreverContrato.print("\trequire(msg.sender == " + Analise.PartesEnvolvidas.get(i) + ");\n");
+            EscreverContrato.print("\t_;\n");
+            EscreverContrato.print("}\n");
         }
         EscreverContrato.printf("}\n");   
         ContratoInteligente.close();

@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import tela.TelaPrincipal;
 
 /**
  *
@@ -24,12 +25,8 @@ public class TCC {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Analise analise = new Analise();
-        analise.DetectarPartes("C:\\Users\\bruno\\Documents\\NetBeansProjects\\TCC\\EstudoDeCaso.rcl");
-        
-        Escrita escrita = new Escrita();
-        escrita.EscreverPartes("C:\\Users\\bruno\\Documents\\NetBeansProjects\\TCC\\EstudoDeCaso.sol");
-        
+        TelaPrincipal tela = new TelaPrincipal();
+        tela.setVisible(true);
  
     }
     
