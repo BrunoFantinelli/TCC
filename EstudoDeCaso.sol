@@ -4,19 +4,19 @@ contract EstudoDeCaso {
 	address s;
 	address k;
 	address c;
-modifier onlyb(){
+modifier onlyB(){
 	require(msg.sender == b);
 	_;
 }
-modifier onlys(){
+modifier onlyS(){
 	require(msg.sender == s);
 	_;
 }
-modifier onlyk(){
+modifier onlyK(){
 	require(msg.sender == k);
 	_;
 }
-modifier onlyc(){
+modifier onlyC(){
 	require(msg.sender == c);
 	_;
 }
