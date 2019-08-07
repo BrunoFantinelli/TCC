@@ -14,7 +14,7 @@
       {b,k}[notifyProductReceipt]({k,c}O(payProduct)) ˆ
       {c,s}[notifyProductDelivery](
        {s,k}O(liberateShippingCosts) ˆ
-       {s, k}[liberateShippingCosts]({k,c}O(payShippingCosts))
+       {s,k}[liberateShippingCosts]({k,c}O(payShippingCosts))
 )))))));
 {b,k}[(!notifyDelivery)*]({k,s}F(payProduct));
 {s,k}[(!liberateShippingCosts)*]({k,c}F(payShippingCosts));

@@ -113,7 +113,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Analise analise = new Analise();
         try {
-            analise.DetectarPartes(campoPath.getText());
+            analise.iniciarAnalise(campoPath.getText());
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null,"Arquivo Inválido.","Erro",JOptionPane.WARNING_MESSAGE);
             return;
