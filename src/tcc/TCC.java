@@ -27,7 +27,6 @@ public class TCC {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
- 
     }
     
 }

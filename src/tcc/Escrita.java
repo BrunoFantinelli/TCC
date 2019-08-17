@@ -23,13 +23,13 @@ public class Escrita {
         EscreverContrato.printf("pragma solidity ^0.4.11;\n");
         EscreverContrato.printf("contract EstudoDeCaso {\n");
         
-        for(int i = 0; i < Analise.PartesEnvolvidas.size(); i++){
-            EscreverContrato.printf("\taddress " + Analise.PartesEnvolvidas.get(i) + ";\n");
+        for(int i = 0; i < Contrato.PartesEnvolvidas.size(); i++){
+            EscreverContrato.printf("\taddress " + Contrato.PartesEnvolvidas.get(i) + ";\n");
         }
         
-        for(int i = 0; i < Analise.PartesEnvolvidas.size(); i++){
-            EscreverContrato.print("modifier only" + Analise.PartesEnvolvidas.get(i).toString().toUpperCase() + "(){\n");
-            EscreverContrato.print("\trequire(msg.sender == " + Analise.PartesEnvolvidas.get(i) + ");\n");
+        for(int i = 0; i < Contrato.PartesEnvolvidas.size(); i++){
+            EscreverContrato.print("modifier only" + Contrato.PartesEnvolvidas.get(i).toString().toUpperCase() + "(){\n");
+            EscreverContrato.print("\trequire(msg.sender == " + Contrato.PartesEnvolvidas.get(i) + ");\n");
             EscreverContrato.print("\t_;\n");
             EscreverContrato.print("}\n");
         }

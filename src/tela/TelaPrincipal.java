@@ -118,14 +118,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Arquivo Inválido.","Erro",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Escrita escrita = new Escrita();
+        /*Escrita escrita = new Escrita();
         String newPath = campoPath.getText().replace(".rcl", ".sol");
         try {
             escrita.EscreverPartes(newPath);
             mensagemFim.setText("Contrato Traduzido.");
         } catch (IOException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
