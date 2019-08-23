@@ -20,19 +20,35 @@ public class Escrita {
         FileWriter ContratoInteligente = new FileWriter(path);
         PrintWriter EscreverContrato = new PrintWriter(ContratoInteligente);
  
-        EscreverContrato.printf("pragma solidity ^0.4.11;\n");
-        EscreverContrato.printf("contract EstudoDeCaso {\n");
-        
+        EscreverContrato.printf("pragma solidity ^0.5.11;\n\n");
+        EscreverContrato.printf("contract EstudoDeCaso {\n\n");
+        EscreverContrato.print("\tenum Stages {\n");
+        for(int i = 0; i < Contrato.Estados.size(); i++){
+            if(i + 1 == Contrato.Estados.size()){
+                EscreverContrato.printf("\t\testado" + Contrato.Estados.get(i) + "\n");
+            }else{
+                EscreverContrato.printf("\t\testado" + Contrato.Estados.get(i) + ",\n");
+            }
+            
+        }
+        EscreverContrato.print("\t}\n\n");
+        EscreverContrato.print("\tStages public stage = Stages.estado0;\n");
         for(int i = 0; i < Contrato.PartesEnvolvidas.size(); i++){
             EscreverContrato.printf("\taddress " + Contrato.PartesEnvolvidas.get(i) + ";\n");
         }
         
         for(int i = 0; i < Contrato.PartesEnvolvidas.size(); i++){
-            EscreverContrato.print("modifier only" + Contrato.PartesEnvolvidas.get(i).toString().toUpperCase() + "(){\n");
-            EscreverContrato.print("\trequire(msg.sender == " + Contrato.PartesEnvolvidas.get(i) + ");\n");
-            EscreverContrato.print("\t_;\n");
-            EscreverContrato.print("}\n");
+            EscreverContrato.print("\n\tmodifier only" + Contrato.PartesEnvolvidas.get(i).toUpperCase() + "(){\n");
+            EscreverContrato.print("\t\trequire(msg.sender == " + Contrato.PartesEnvolvidas.get(i) + ");\n");
+            EscreverContrato.print("\t\t_;\n");
+            EscreverContrato.print("\t}\n");
         }
+        
+        EscreverContrato.print("\n\tmodifier atStage(Stages _stage) {\n");
+        EscreverContrato.print("\t\trequire(stage == _stage);\n");
+        EscreverContrato.print("\t\t_;\n");
+        EscreverContrato.print("\t}\n");
+        
         EscreverContrato.printf("}\n");   
         ContratoInteligente.close();
     }

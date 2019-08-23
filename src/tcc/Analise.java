@@ -36,7 +36,7 @@ public class Analise {
                 determinarTransicoes(linha);
             }            
         }
-        LogConsole();
+        //LogConsole();
         br.close();
     }
     
