@@ -8,7 +8,9 @@ package tcc;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -36,7 +38,7 @@ public class Analise {
                 determinarTransicoes(linha);
             }            
         }
-        //LogConsole();
+        LogTXT(path);
         br.close();
     }
     
@@ -79,12 +81,13 @@ public class Analise {
             Contrato.EstadosInvalidos.add(estado);
         }
     }
-    
+   
     public void determinarTransicoes(String linha){
-        Transicao aux = new Transicao();
+
         String quebraInicial[] = linha.split(":");
         String transicoes[] = quebraInicial[1].split(";");
         for(String transicao : transicoes){
+            Transicao aux = new Transicao();
             String separacao[] = transicao.split("-");
             aux.FromState = separacao[0];
             aux.ToState = separacao[2];
@@ -95,7 +98,9 @@ public class Analise {
                 aux.From = sepFinal[0];
                 aux.Action = sepFinal[1];
                 aux.To = sepFinal[2];
-                Contrato.Transicoes.add(aux);
+                if(!Contr6ato.Transicoes.contains(aux)){
+                    Contrato.Transicoes.add(aux);
+                }
             }
             
         }
@@ -103,39 +108,45 @@ public class Analise {
     
     
     
-    public void LogConsole(){
-        System.out.println("Partes: ");
+    public void LogTXT(String path) throws IOException{
+        path += "LOGTXT.txt";
+        FileWriter LogTXT = new FileWriter(path);
+        PrintWriter EscreverLog = new PrintWriter(LogTXT);
+        
+        
+        EscreverLog.printf("Partes: \n");
         for(int i = 0; i < Contrato.PartesEnvolvidas.size(); i++){
-            System.out.println(Contrato.PartesEnvolvidas.get(i));
+            EscreverLog.printf(Contrato.PartesEnvolvidas.get(i) + "\n");
         }
+        EscreverLog.printf("\n");
         
-        System.out.println("Estados: ");
+        EscreverLog.printf("Estados: \n");
         for(int i = 0; i < Contrato.Estados.size(); i++){
-            System.out.println(Contrato.Estados.get(i));
+            EscreverLog.printf(Contrato.Estados.get(i) + "\n");
         }
+        EscreverLog.printf("\n");
         
-        System.out.println("Estados Validos: ");
+        EscreverLog.printf("Estados Validos: \n");
         for(int i = 0; i < Contrato.EstadosValidos.size(); i++){
-            System.out.println(Contrato.EstadosValidos.get(i));
+            EscreverLog.printf(Contrato.EstadosValidos.get(i) + "\n");
         }
+        EscreverLog.printf("\n");
         
-        System.out.println("Estados Invalidos: ");
+        EscreverLog.printf("Estados Invalido: \n");
         for(int i = 0; i < Contrato.EstadosInvalidos.size(); i++){
-            System.out.println(Contrato.EstadosInvalidos.get(i));
+            EscreverLog.printf(Contrato.EstadosInvalidos.get(i) + "\n");
+        }
+        EscreverLog.printf("\n");
+        
+        EscreverLog.printf("Transicoes: \n");
+        for(int i = 0; i < Contrato.Transicoes.size(); i++){
+            EscreverLog.printf("Do Estado: " + Contrato.Transicoes.get(i).FromState + "\n");
+            EscreverLog.printf("Para Estado: " + Contrato.Transicoes.get(i).ToState + "\n");
+            EscreverLog.printf("Da Parte: " + Contrato.Transicoes.get(i).From + "\n");
+            EscreverLog.printf("Para Parte: " + Contrato.Transicoes.get(i).To + "\n");
+            EscreverLog.printf("Acao: " + Contrato.Transicoes.get(i).Action + "\n\n");
         }
         
-        System.out.println("Transicoes: ");
-        for(int i = 0; i < Contrato.Transicoes.size(); i++){
-            System.out.println("Do Estado: ");
-            System.out.println(Contrato.Transicoes.get(i).FromState);
-            System.out.println("Para Estado: ");
-            System.out.println(Contrato.Transicoes.get(i).ToState);
-            System.out.println("Da Parte: ");
-            System.out.println(Contrato.Transicoes.get(i).From);
-            System.out.println("Para Parte: ");
-            System.out.println(Contrato.Transicoes.get(i).To);
-            System.out.println("Acao: ");
-            System.out.println(Contrato.Transicoes.get(i).Action);
-        }
+        LogTXT.close();
     }
 }

@@ -20,8 +20,10 @@ public class Escrita {
         FileWriter ContratoInteligente = new FileWriter(path);
         PrintWriter EscreverContrato = new PrintWriter(ContratoInteligente);
  
+        String nomeDoContrato = separarNomeContrato(path);
+        
         EscreverContrato.printf("pragma solidity ^0.5.11;\n\n");
-        EscreverContrato.printf("contract EstudoDeCaso {\n\n");
+        EscreverContrato.printf("contract " + nomeDoContrato + " {\n\n");
         EscreverContrato.print("\tenum Stages {\n");
         for(int i = 0; i < Contrato.Estados.size(); i++){
             if(i + 1 == Contrato.Estados.size()){
@@ -32,6 +34,8 @@ public class Escrita {
             
         }
         EscreverContrato.print("\t}\n\n");
+        
+        //Define os estados do automato no contrato 
         EscreverContrato.print("\tStages public stage = Stages.estado0;\n");
         for(int i = 0; i < Contrato.PartesEnvolvidas.size(); i++){
             EscreverContrato.printf("\taddress " + Contrato.PartesEnvolvidas.get(i) + ";\n");
@@ -51,6 +55,13 @@ public class Escrita {
         
         EscreverContrato.printf("}\n");   
         ContratoInteligente.close();
+    }
+    
+    public String separarNomeContrato(String path){
+        String result = path.substring(path.lastIndexOf(System.getProperty("file.separator"))+1,path.length());
+        result = result.replace(".", "!");
+        String nome[] = result.split("!");
+        return nome[0];
     }
     
 }
