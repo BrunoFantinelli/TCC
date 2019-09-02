@@ -37,11 +37,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        escritaContratos = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         campoPath = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        mensagemFim = new javax.swing.JLabel();
+        botaoAgora = new javax.swing.JRadioButton();
+        botaoSol = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +63,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        escritaContratos.add(botaoAgora);
+        botaoAgora.setText("Escrever funções agora");
+        botaoAgora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAgoraActionPerformed(evt);
+            }
+        });
+
+        escritaContratos.add(botaoSol);
+        botaoSol.setText("Escrever funções no .sol");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,15 +81,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mensagemFim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(campoPath, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botaoSol)
+                                    .addComponent(botaoAgora))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -88,26 +106,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botaoAgora)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoSol)
+                .addGap(6, 6, 6)
                 .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(mensagemFim)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-		JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
-		int returnValue = jfc.showOpenDialog(null);
-		// int returnValue = jfc.showSaveDialog(null);
+        int returnValue = jfc.showOpenDialog(null);
+        // int returnValue = jfc.showSaveDialog(null);
 
-		if (returnValue == JFileChooser.APPROVE_OPTION) {
-			File selectedFile = jfc.getSelectedFile();
-                        campoPath.setText(selectedFile.getAbsolutePath());
-		}
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jfc.getSelectedFile();
+            campoPath.setText(selectedFile.getAbsolutePath());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -115,19 +135,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
         try {
             analise.iniciarAnalise(campoPath.getText());
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,"Arquivo Inválido.","Erro",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Arquivo Inválido.", "Erro", JOptionPane.WARNING_MESSAGE);
             return;
         }
+
         Escrita escrita = new Escrita();
         String newPath = campoPath.getText().replace(".txt", ".sol");
         try {
-            escrita.EscreverPartes(newPath);
-            mensagemFim.setText("Contrato Traduzido.");
+            if(escritaContratos.getSelection()==null){
+                JOptionPane.showMessageDialog(null, "Escolha uma das opções de escrita.", "Erro", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            if (escritaContratos.getSelection().equals(botaoSol.getModel())) {
+                escrita.EscreverContrato(newPath);
+                JOptionPane.showMessageDialog(null, "Contrato Traduzido com Sucesso.");
+            }else if((escritaContratos.getSelection().equals(botaoAgora.getModel()))){
+                TelaEscritaFuncoes tela_escrita = new TelaEscritaFuncoes();
+                tela_escrita.setVisible(true);
+            }
+
         } catch (IOException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void botaoAgoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAgoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoAgoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,10 +200,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton botaoAgora;
+    private javax.swing.JRadioButton botaoSol;
     private javax.swing.JTextField campoPath;
+    private javax.swing.ButtonGroup escritaContratos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel mensagemFim;
     // End of variables declaration//GEN-END:variables
 }
