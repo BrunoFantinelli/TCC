@@ -98,8 +98,11 @@ public class Analise {
                 aux.From = sepFinal[0];
                 aux.Action = sepFinal[1];
                 aux.To = sepFinal[2];
-                if(!Contr6ato.Transicoes.contains(aux)){
+                if(!Contrato.Transicoes.contains(aux)){
                     Contrato.Transicoes.add(aux);
+                }
+                if(!Contrato.Actions.contains(aux.Action)){
+                    Contrato.Actions.add(aux.Action);
                 }
             }
             
@@ -109,7 +112,8 @@ public class Analise {
     
     
     public void LogTXT(String path) throws IOException{
-        path += "LOGTXT.txt";
+        String nome = arrumarNome(path);
+        path = path.replace(nome, "LOGContrato.txt");
         FileWriter LogTXT = new FileWriter(path);
         PrintWriter EscreverLog = new PrintWriter(LogTXT);
         
@@ -119,6 +123,12 @@ public class Analise {
             EscreverLog.printf(Contrato.PartesEnvolvidas.get(i) + "\n");
         }
         EscreverLog.printf("\n");
+        
+        EscreverLog.printf("Acoes: \n");
+        for(int i = 0; i < Contrato.Actions.size(); i++){
+            EscreverLog.printf(Contrato.Actions.get(i) + "\n");
+        }
+        EscreverLog.print("\n");
         
         EscreverLog.printf("Estados: \n");
         for(int i = 0; i < Contrato.Estados.size(); i++){
@@ -148,5 +158,10 @@ public class Analise {
         }
         
         LogTXT.close();
+    }
+    
+    public String arrumarNome(String path){
+        String result = path.substring(path.lastIndexOf(System.getProperty("file.separator"))+1,path.length());
+        return result;
     }
 }

@@ -15,7 +15,10 @@ import java.io.PrintWriter;
  */
 public class Escrita {
     
-    public void EscreverPartes(String path) throws IOException{
+    public static String funcoes;
+    
+    public void EscreverContrato(String path) throws IOException{
+
         //Começar escrita do Contrato Inteligente
         FileWriter ContratoInteligente = new FileWriter(path);
         PrintWriter EscreverContrato = new PrintWriter(ContratoInteligente);
