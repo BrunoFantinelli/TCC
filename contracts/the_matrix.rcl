@@ -1,0 +1,33 @@
+/*************************************************************************
+ __  __       _        _        ____  _ _               _   _
+|  \/  | __ _| |_ _ __(_)_  __ / ___|(_) |_ _   _  __ _| |_(_) ___  _ __
+| |\/| |/ _` | __| '__| \ \/ / \___ \| | __| | | |/ _` | __| |/ _ \| '_ \
+| |  | | (_| | |_| |  | |>  <   ___) | | |_| |_| | (_| | |_| | (_) | | | |
+|_|  |_|\__,_|\__|_|  |_/_/\_\ |____/|_|\__|\__,_|\__,_|\__|_|\___/|_| |_|
+**************************************************************************
+Morpheus offers to Neo two choices: Neo must choice between red or blue
+pill. His choice have implications that or will make him wake up and he
+can save the World or will simply will make him wake up in your bed and
+not remembering nothing.
+If Neo fails to change the World, Smith will destroy the Matrix.
+**************************************************************************/
+conflict{
+   global{(showTrue,hideTrue), (redPill,bluePill)};
+};
+
+//{neo,morpheus}O(redPill) - {neo,morpheus}O(bluePill);
+{neo,morpheus}[redPill](
+   {morpheus,neo}O(showTrue)^
+   {morpheus,neo}[showTrue](
+      {neo}O(saveWorld)_/
+         {smith}O(destroyMatrix)
+      /_
+   )
+);
+{neo,morpheus}[bluePill](
+   {morpheus,neo}O(hideTrue&forget)^
+   {morpheus,neo}[hideTrue](
+      [1*]({neo}O(liveInIgnorance)) ^
+      {smith}O(destroyMatrix)
+   )
+);

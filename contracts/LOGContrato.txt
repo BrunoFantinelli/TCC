@@ -1,0 +1,200 @@
+Partes: 
+neo
+morpheus
+smith
+
+Acoes: 
+showTrue
+hideTrue
+redPill
+bluePill
+saveWorld
+destroyMatrix
+forget
+liveInIgnorance
+
+Estados: 
+0
+1
+2
+3
+4
+5
+6
+7
+
+Estados Validos: 
+4
+
+Estados Invalido: 
+7
+
+Transicoes: 
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 2
+Para Estado: 4
+Da Parte: neo
+Para Parte: smith
+Acao: liveInIgnorance
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: neo
+Acao: destroyMatrix
+
+Do Estado: 2
+Para Estado: 4
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 2
+Para Estado: 4
+Da Parte: neo
+Para Parte: morpheus
+Acao: liveInIgnorance
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: neo
+Acao: destroyMatrix
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 6
+Para Estado: 7
+Da Parte: neo
+Para Parte: morpheus
+Acao: saveWorld
+
+Do Estado: 2
+Para Estado: 4
+Da Parte: smith
+Para Parte: neo
+Acao: destroyMatrix
+
+Do Estado: 2
+Para Estado: 4
+Da Parte: neo
+Para Parte: smith
+Acao: liveInIgnorance
+
+Do Estado: 1
+Para Estado: 4
+Da Parte: morpheus
+Para Parte: neo
+Acao: hideTrue
+
+Do Estado: 0
+Para Estado: 5
+Da Parte: neo
+Para Parte: morpheus
+Acao: redPill
+
+Do Estado: 3
+Para Estado: 3
+Da Parte: neo
+Para Parte: morpheus
+Acao: liveInIgnorance
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: neo
+Acao: destroyMatrix
+
+Do Estado: 6
+Para Estado: 7
+Da Parte: neo
+Para Parte: smith
+Acao: saveWorld
+
+Do Estado: 1
+Para Estado: 4
+Da Parte: morpheus
+Para Parte: neo
+Acao: forget
+
+Do Estado: 3
+Para Estado: 3
+Da Parte: neo
+Para Parte: smith
+Acao: liveInIgnorance
+
+Do Estado: 3
+Para Estado: 3
+Da Parte: neo
+Para Parte: smith
+Acao: liveInIgnorance
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 5
+Para Estado: 4
+Da Parte: morpheus
+Para Parte: neo
+Acao: showTrue
+
+Do Estado: 0
+Para Estado: 1
+Da Parte: neo
+Para Parte: morpheus
+Acao: bluePill
+
+Do Estado: 5
+Para Estado: 6
+Da Parte: morpheus
+Para Parte: neo
+Acao: showTrue
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 6
+Para Estado: 7
+Da Parte: neo
+Para Parte: morpheus
+Acao: saveWorld
+
+Do Estado: 2
+Para Estado: 4
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 2
+Para Estado: 3
+Da Parte: smith
+Para Parte: morpheus
+Acao: destroyMatrix
+
+Do Estado: 1
+Para Estado: 2
+Da Parte: morpheus
+Para Parte: neo
+Acao: forget
+

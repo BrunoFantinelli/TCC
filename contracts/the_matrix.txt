@@ -1,0 +1,7 @@
+A:showTrue;hideTrue;redPill;bluePill;saveWorld;destroyMatrix;forget;liveInIgnorance;
+I:neo;morpheus;smith;
+Q:0;1;2;3;4;5;6;7;
+V:4;
+S:7;
+T:2-neo?liveInIgnorance?morpheus,smith?destroyMatrix?morpheus,-3;2-neo?liveInIgnorance?morpheus,neo?liveInIgnorance?smith,-4;2-neo?liveInIgnorance?morpheus,neo?liveInIgnorance?smith,smith?destroyMatrix?neo,-3;2-smith?destroyMatrix?neo,smith?destroyMatrix?morpheus,-4;2-neo?liveInIgnorance?morpheus,-4;2-neo?liveInIgnorance?morpheus,smith?destroyMatrix?neo,-3;2-neo?liveInIgnorance?morpheus,smith?destroyMatrix?neo,smith?destroyMatrix?morpheus,-3;6-neo?saveWorld?smith,neo?saveWorld?morpheus,-7;2-smith?destroyMatrix?neo,-4;2-neo?liveInIgnorance?smith,-4;1-morpheus?hideTrue?neo,-4;0-neo?redPill?morpheus,-5;3-neo?liveInIgnorance?morpheus,-3;2-neo?liveInIgnorance?smith,smith?destroyMatrix?neo,-3;6-neo?saveWorld?smith,-7;1-morpheus?forget?neo,-4;3-neo?liveInIgnorance?morpheus,neo?liveInIgnorance?smith,-3;3-neo?liveInIgnorance?smith,-3;2-neo?liveInIgnorance?morpheus,neo?liveInIgnorance?smith,smith?destroyMatrix?morpheus,-3;5-morpheus?showTrue?neo,-4;0-neo?bluePill?morpheus,-1;5-morpheus?showTrue?neo,-6;2-neo?liveInIgnorance?morpheus,neo?liveInIgnorance?smith,smith?destroyMatrix?neo,smith?destroyMatrix?morpheus,-3;2-neo?liveInIgnorance?smith,smith?destroyMatrix?morpheus,-3;6-neo?saveWorld?morpheus,-7;2-smith?destroyMatrix?morpheus,-4;2-neo?liveInIgnorance?smith,smith?destroyMatrix?neo,smith?destroyMatrix?morpheus,-3;1-morpheus?hideTrue?neo,morpheus?forget?neo,-2;
+
