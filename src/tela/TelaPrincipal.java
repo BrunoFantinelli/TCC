@@ -20,7 +20,7 @@ import tcc.Escrita;
  * @author bruno
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    public static String newPath;
     /**
      * Creates new form TelaPrincipal
      */
@@ -47,7 +47,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Contrato em RCL:");
+        jLabel1.setText("Automato do Contrato:");
 
         jButton1.setText("Abrir Arquivo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,8 +122,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
         int returnValue = jfc.showOpenDialog(null);
-        // int returnValue = jfc.showSaveDialog(null);
-
         if (returnValue == JFileChooser.APPROVE_OPTION) {
             File selectedFile = jfc.getSelectedFile();
             campoPath.setText(selectedFile.getAbsolutePath());
@@ -140,16 +138,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
         Escrita escrita = new Escrita();
-        String newPath = campoPath.getText().replace(".txt", ".sol");
+        newPath = campoPath.getText().replace(".txt", ".sol");
         try {
             if(escritaContratos.getSelection()==null){
                 JOptionPane.showMessageDialog(null, "Escolha uma das opções de escrita.", "Erro", JOptionPane.WARNING_MESSAGE);
                 return;
             }
             if (escritaContratos.getSelection().equals(botaoSol.getModel())) {
+                Escrita.op = 0;
                 escrita.EscreverContrato(newPath);
                 JOptionPane.showMessageDialog(null, "Contrato Traduzido com Sucesso.");
             }else if((escritaContratos.getSelection().equals(botaoAgora.getModel()))){
+                Escrita.op = 1;
                 TelaEscritaFuncoes tela_escrita = new TelaEscritaFuncoes();
                 tela_escrita.setVisible(true);
             }
