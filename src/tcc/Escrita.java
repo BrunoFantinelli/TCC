@@ -16,6 +16,7 @@ import java.io.PrintWriter;
 public class Escrita {
     
     public static String funcoes;
+    public static int op;
     
     public void EscreverContrato(String path) throws IOException{
 
@@ -56,6 +57,17 @@ public class Escrita {
         EscreverContrato.print("\t\t_;\n");
         EscreverContrato.print("\t}\n");
         
+        if(op == 0){
+            for(int i = 0; i < Contrato.Actions.size(); i++){
+                EscreverContrato.print("\n\tfunction " + Contrato.Actions.get(i) + "() public {\n");
+                EscreverContrato.print("\n\t//TODO Escreva as funcoes aqui\n\n");
+                EscreverContrato.print("\t}\n");
+            }
+        }else if(op == 1){
+            EscreverContrato.print(funcoes);
+        }
+        
+        
         EscreverContrato.printf("}\n");   
         ContratoInteligente.close();
     }
@@ -66,5 +78,6 @@ public class Escrita {
         String nome[] = result.split("!");
         return nome[0];
     }
+
     
 }

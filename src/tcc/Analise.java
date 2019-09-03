@@ -94,7 +94,7 @@ public class Analise {
             
             String acoes[] = separacao[1].split(",");
             for(String acao : acoes){
-                String sepFinal[] = acao.split("!");
+                String sepFinal[] = acao.split("[?]");
                 aux.From = sepFinal[0];
                 aux.Action = sepFinal[1];
                 aux.To = sepFinal[2];
