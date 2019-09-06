@@ -60,7 +60,7 @@ public class Escrita {
         if(op == 0){
             for(int i = 0; i < Contrato.Actions.size(); i++){
                 EscreverContrato.print("\n\tfunction " + Contrato.Actions.get(i) + "() public {\n");
-                EscreverContrato.print("\n\t//TODO Escreva as funcoes aqui\n\n");
+                EscreverContrato.print("\n\t//TODO Escreva a funcao aqui\n\n");
                 EscreverContrato.print("\t}\n");
             }
         }else if(op == 1){
