@@ -18,7 +18,7 @@ import tela.TelaPrincipal;
  *
  * @author bruno
  */
-public class TCC {
+public class Main {
 
     /**
      * @param args the command line arguments

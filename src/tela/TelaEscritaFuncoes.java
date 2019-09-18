@@ -42,7 +42,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         campoEscrita = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        finalizar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -52,10 +52,10 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
         campoEscrita.setRows(5);
         jScrollPane1.setViewportView(campoEscrita);
 
-        jButton1.setText("Finalizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        finalizar.setText("Finalizar");
+        finalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                finalizarActionPerformed(evt);
             }
         });
 
@@ -79,7 +79,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(finalizar))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -94,7 +94,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(finalizar)
                     .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -102,7 +102,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         Escrita escrita = new Escrita();
         try {
             Escrita.funcoes = campoEscrita.getText();
@@ -112,7 +112,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(TelaEscritaFuncoes.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_finalizarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
@@ -155,7 +155,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea campoEscrita;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton finalizar;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

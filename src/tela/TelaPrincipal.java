@@ -40,8 +40,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         escritaContratos = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         campoPath = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        selecionarArquivo = new javax.swing.JButton();
+        transformarContrato = new javax.swing.JButton();
         botaoAgora = new javax.swing.JRadioButton();
         botaoSol = new javax.swing.JRadioButton();
 
@@ -49,17 +49,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel1.setText("Automato do Contrato:");
 
-        jButton1.setText("Abrir Arquivo");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        selecionarArquivo.setText("Abrir Arquivo");
+        selecionarArquivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                selecionarArquivoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Transformar em Contrato Inteligente");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        transformarContrato.setText("Transformar em Contrato Inteligente");
+        transformarContrato.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                transformarContratoActionPerformed(evt);
             }
         });
 
@@ -84,12 +84,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(transformarContrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(campoPath, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(selecionarArquivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(botaoSol)
@@ -105,20 +105,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(selecionarArquivo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoAgora)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSol)
                 .addGap(6, 6, 6)
-                .addComponent(jButton2)
+                .addComponent(transformarContrato)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void selecionarArquivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionarArquivoActionPerformed
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
         int returnValue = jfc.showOpenDialog(null);
@@ -126,9 +126,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             File selectedFile = jfc.getSelectedFile();
             campoPath.setText(selectedFile.getAbsolutePath());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_selecionarArquivoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void transformarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transformarContratoActionPerformed
         Analise analise = new Analise();
         try {
             analise.iniciarAnalise(campoPath.getText());
@@ -158,7 +158,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_transformarContratoActionPerformed
 
     private void botaoAgoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAgoraActionPerformed
         // TODO add your handling code here:
@@ -204,8 +204,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton botaoSol;
     private javax.swing.JTextField campoPath;
     private javax.swing.ButtonGroup escritaContratos;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton selecionarArquivo;
+    private javax.swing.JButton transformarContrato;
     // End of variables declaration//GEN-END:variables
 }
