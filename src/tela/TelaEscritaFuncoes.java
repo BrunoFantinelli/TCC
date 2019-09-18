@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import tcc.Contrato;
-import tcc.Escrita;
+import src.Contrato;
+import src.Escrita;
 import static tela.TelaPrincipal.newPath;
 
 /**

@@ -37,52 +37,44 @@ contract the_matrix {
 		require(stage == _stage);
 		_;
 	}
+function showTrue(){
 
-	function showTrue() public {
 
-	//TODO Escreva as funcoes aqui
+}
 
-	}
+function hideTrue(){
 
-	function hideTrue() public {
 
-	//TODO Escreva as funcoes aqui
+}
 
-	}
+function redPill(){
 
-	function redPill() public {
+	asdasdasdas
+}
 
-	//TODO Escreva as funcoes aqui
+function bluePill(){
 
-	}
 
-	function bluePill() public {
+}
 
-	//TODO Escreva as funcoes aqui
+function saveWorld(){
 
-	}
 
-	function saveWorld() public {
+}
 
-	//TODO Escreva as funcoes aqui
+function destroyMatrix(){
 
-	}
 
-	function destroyMatrix() public {
+}
 
-	//TODO Escreva as funcoes aqui
+function forget(){
 
-	}
 
-	function forget() public {
+}
 
-	//TODO Escreva as funcoes aqui
+function liveInIgnorance(){
 
-	}
 
-	function liveInIgnorance() public {
+}
 
-	//TODO Escreva as funcoes aqui
-
-	}
 }

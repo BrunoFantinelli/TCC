@@ -12,8 +12,8 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
-import tcc.Analise;
-import tcc.Escrita;
+import src.Analise;
+import src.Escrita;
 
 /**
  *

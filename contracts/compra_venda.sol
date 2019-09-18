@@ -1,6 +1,6 @@
 pragma solidity ^0.5.11;
 
-contract automato {
+contract compra_venda {
 
 	enum Stages {
 		estado29,
@@ -91,10 +91,69 @@ contract automato {
 		_;
 	}
 
-	constructor(address _b, address _s, address _k, address _c) internal {
-		b = _b;
-		s = _s;
-		k = _k;
-		c = _c;
+	function buyProduct() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function payProduct() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function notifyProductPayment() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function sendProduct() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function payShippingCosts() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function notifyShippingPayment() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function deliverProduct() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function notifyProductReceipt() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function notifyProductDelivery() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function liberateShippingCosts() public {
+
+	//TODO Escreva a funcao aqui
+
+	}
+
+	function notifyDelivery() public {
+
+	//TODO Escreva a funcao aqui
+
 	}
 }
