@@ -49,7 +49,7 @@ function hideTrue(){
 
 function redPill(){
 
-	asdasdasdas
+
 }
 
 function bluePill(){

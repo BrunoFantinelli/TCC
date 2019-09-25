@@ -13,6 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 import src.Analise;
+import src.Contrato;
 import src.Escrita;
 
 /**
@@ -21,6 +22,9 @@ import src.Escrita;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     public static String newPath;
+    Analise analise = new Analise();
+    Escrita escrita = new Escrita();
+    Contrato contrato;
     /**
      * Creates new form TelaPrincipal
      */
@@ -129,7 +133,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_selecionarArquivoActionPerformed
 
     private void transformarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transformarContratoActionPerformed
-        Analise analise = new Analise();
+
         try {
             analise.iniciarAnalise(campoPath.getText());
         } catch (IOException ex) {
@@ -137,7 +141,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             return;
         }
 
-        Escrita escrita = new Escrita();
         newPath = campoPath.getText().replace(".txt", ".sol");
         try {
             if(escritaContratos.getSelection()==null){
@@ -153,13 +156,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 TelaEscritaFuncoes tela_escrita = new TelaEscritaFuncoes();
                 tela_escrita.setVisible(true);
             }
-
+            
         } catch (IOException ex) {
             Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_transformarContratoActionPerformed
-
+    
+    
     private void botaoAgoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAgoraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAgoraActionPerformed

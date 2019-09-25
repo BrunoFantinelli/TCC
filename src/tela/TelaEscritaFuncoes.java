@@ -21,6 +21,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaEscritaFuncoes
+     * @param contrato
      */
     public TelaEscritaFuncoes() {
         initComponents();
@@ -103,15 +104,15 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
+        Escrita.funcoes = campoEscrita.getText();
         Escrita escrita = new Escrita();
         try {
-            Escrita.funcoes = campoEscrita.getText();
-            escrita.EscreverContrato(newPath);
+            escrita.EscreverContrato(newPath); 
             JOptionPane.showMessageDialog(null, "Contrato Traduzido com Sucesso.");
-            this.dispose();
         } catch (IOException ex) {
             Logger.getLogger(TelaEscritaFuncoes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.dispose();
     }//GEN-LAST:event_finalizarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

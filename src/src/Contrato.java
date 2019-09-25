@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 public class Contrato {
     
-    //Array com as partes envolvidas
     public static ArrayList<String> PartesEnvolvidas = new ArrayList<>();
     public static ArrayList<String> Actions = new ArrayList<>();
     public static ArrayList<String> Estados = new ArrayList<>();
