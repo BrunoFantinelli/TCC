@@ -48,7 +48,7 @@ function hideTrue(){
 }
 
 function redPill(){
-
+	print("Escolher a pilula vermelha");
 
 }
 

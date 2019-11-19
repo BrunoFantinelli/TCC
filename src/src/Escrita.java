@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package src;
 
 import java.io.FileWriter;
@@ -20,7 +15,6 @@ public class Escrita {
 
     public void EscreverContrato(String path) throws IOException {
 
-        //Começar escrita do Contrato Inteligente
         FileWriter ContratoInteligente = new FileWriter(path);
         PrintWriter EscreverContrato = new PrintWriter(ContratoInteligente);
 
@@ -39,7 +33,6 @@ public class Escrita {
         }
         EscreverContrato.print("\t}\n\n");
 
-        //Define os estados do automato no contrato 
         EscreverContrato.print("\tStages public stage = Stages.estado0;\n");
         for (int i = 0; i < Contrato.PartesEnvolvidas.size(); i++) {
             EscreverContrato.printf("\taddress " + Contrato.PartesEnvolvidas.get(i) + ";\n");
