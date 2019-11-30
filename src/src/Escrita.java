@@ -14,7 +14,7 @@ public class Escrita {
     public static int op;
 
     public void EscreverContrato(String path) throws IOException {
-
+        System.out.println(Contrato.Transicoes.size());
         FileWriter ContratoInteligente = new FileWriter(path);
         PrintWriter EscreverContrato = new PrintWriter(ContratoInteligente);
 
