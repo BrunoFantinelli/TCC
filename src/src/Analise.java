@@ -106,13 +106,6 @@ public class Analise {
         }
     }
     
-    public String[] getActions(Contrato c){
-        String aux[] = null;
-        for(int i = 0; i < c.Actions.size(); i++){
-            aux[i] = c.Actions.get(i);
-        }
-        return aux;
-    }
     
     
     public void LogTXT(String path) throws IOException{
