@@ -8,11 +8,11 @@ import java.util.ArrayList;
  */
 public class Contrato {
     
-    public static ArrayList<String> PartesEnvolvidas = new ArrayList<>();
-    public static ArrayList<String> Actions = new ArrayList<>();
-    public static ArrayList<String> Estados = new ArrayList<>();
-    public static ArrayList<String> EstadosValidos = new ArrayList<>();
-    public static ArrayList<String> EstadosInvalidos = new ArrayList<>();
-    public static ArrayList<Transicao> Transicoes = new ArrayList<>();
+    public ArrayList<String> PartesEnvolvidas = new ArrayList<>();
+    public ArrayList<String> Actions = new ArrayList<>();
+    public ArrayList<String> Estados = new ArrayList<>();
+    public ArrayList<String> EstadosValidos = new ArrayList<>();
+    public ArrayList<String> EstadosInvalidos = new ArrayList<>();
+    public ArrayList<Transicao> Transicoes = new ArrayList<>();
     
 }

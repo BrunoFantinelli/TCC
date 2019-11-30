@@ -12,8 +12,9 @@ import java.io.PrintWriter;
  * @author bruno
  */
 public class Analise {
-
-    public void iniciarAnalise(String path) throws FileNotFoundException, IOException {
+    Contrato c = new Contrato();
+    Escrita e = new Escrita();
+    public Contrato iniciarAnalise(String path) throws FileNotFoundException, IOException {
         
         BufferedReader br = new BufferedReader(new FileReader(path));
         //Ler contrato linha por linha
@@ -35,13 +36,14 @@ public class Analise {
         }
         LogTXT(path);
         br.close();
+        return c;
     }
     
     public void determinarActions(String linha){
         String quebraInicial[] = linha.split(":");
         String actions[] = quebraInicial[1].split(";");
         for (String action : actions) {
-            Contrato.Actions.add(action);
+            c.Actions.add(action);
         }
     }
     
@@ -49,7 +51,7 @@ public class Analise {
         String quebraInicial[] = linha.split(":");
         String partes[] = quebraInicial[1].split(";");
         for (String parte : partes) {
-            Contrato.PartesEnvolvidas.add(parte);
+            c.PartesEnvolvidas.add(parte);
         }
     }
     
@@ -57,7 +59,7 @@ public class Analise {
         String quebraInicial[] = linha.split(":");
         String estados[] = quebraInicial[1].split(";");
         for (String estado : estados) {
-            Contrato.Estados.add(estado);
+            c.Estados.add(estado);
         }
     }
 
@@ -65,7 +67,7 @@ public class Analise {
         String quebraInicial[] = linha.split(":");
         String estadosValidos[] = quebraInicial[1].split(";");
         for(String estado : estadosValidos){
-            Contrato.EstadosValidos.add(estado);
+            c.EstadosValidos.add(estado);
         }
     }
     
@@ -73,7 +75,7 @@ public class Analise {
         String quebraInicial[] = linha.split(":");
         String estadosInvalidos[] = quebraInicial[1].split(";");
         for(String estado : estadosInvalidos){
-            Contrato.EstadosInvalidos.add(estado);
+            c.EstadosInvalidos.add(estado);
         }
     }
    
@@ -93,17 +95,24 @@ public class Analise {
                 aux.From = sepFinal[0];
                 aux.Action = sepFinal[1];
                 aux.To = sepFinal[2];
-                if(!Contrato.Transicoes.contains(aux)){
-                    Contrato.Transicoes.add(aux);
+                if(!c.Transicoes.contains(aux)){
+                    c.Transicoes.add(aux);
                 }
-                if(!Contrato.Actions.contains(aux.Action)){
-                    Contrato.Actions.add(aux.Action);
+                if(!c.Actions.contains(aux.Action)){
+                    c.Actions.add(aux.Action);
                 }
             }
             
         }
     }
     
+    public String[] getActions(Contrato c){
+        String aux[] = null;
+        for(int i = 0; i < c.Actions.size(); i++){
+            aux[i] = c.Actions.get(i);
+        }
+        return aux;
+    }
     
     
     public void LogTXT(String path) throws IOException{
@@ -114,42 +123,42 @@ public class Analise {
         
         
         EscreverLog.printf("Partes: \n");
-        for(int i = 0; i < Contrato.PartesEnvolvidas.size(); i++){
-            EscreverLog.printf(Contrato.PartesEnvolvidas.get(i) + "\n");
+        for(int i = 0; i < c.PartesEnvolvidas.size(); i++){
+            EscreverLog.printf(c.PartesEnvolvidas.get(i) + "\n");
         }
         EscreverLog.printf("\n");
         
         EscreverLog.printf("Acoes: \n");
-        for(int i = 0; i < Contrato.Actions.size(); i++){
-            EscreverLog.printf(Contrato.Actions.get(i) + "\n");
+        for(int i = 0; i < c.Actions.size(); i++){
+            EscreverLog.printf(c.Actions.get(i) + "\n");
         }
         EscreverLog.print("\n");
         
         EscreverLog.printf("Estados: \n");
-        for(int i = 0; i < Contrato.Estados.size(); i++){
-            EscreverLog.printf(Contrato.Estados.get(i) + "\n");
+        for(int i = 0; i < c.Estados.size(); i++){
+            EscreverLog.printf(c.Estados.get(i) + "\n");
         }
         EscreverLog.printf("\n");
         
         EscreverLog.printf("Estados Validos: \n");
-        for(int i = 0; i < Contrato.EstadosValidos.size(); i++){
-            EscreverLog.printf(Contrato.EstadosValidos.get(i) + "\n");
+        for(int i = 0; i < c.EstadosValidos.size(); i++){
+            EscreverLog.printf(c.EstadosValidos.get(i) + "\n");
         }
         EscreverLog.printf("\n");
         
         EscreverLog.printf("Estados Invalido: \n");
-        for(int i = 0; i < Contrato.EstadosInvalidos.size(); i++){
-            EscreverLog.printf(Contrato.EstadosInvalidos.get(i) + "\n");
+        for(int i = 0; i < c.EstadosInvalidos.size(); i++){
+            EscreverLog.printf(c.EstadosInvalidos.get(i) + "\n");
         }
         EscreverLog.printf("\n");
         
         EscreverLog.printf("Transicoes: \n");
-        for(int i = 0; i < Contrato.Transicoes.size(); i++){
-            EscreverLog.printf("Do Estado: " + Contrato.Transicoes.get(i).FromState + "\n");
-            EscreverLog.printf("Para Estado: " + Contrato.Transicoes.get(i).ToState + "\n");
-            EscreverLog.printf("Da Parte: " + Contrato.Transicoes.get(i).From + "\n");
-            EscreverLog.printf("Para Parte: " + Contrato.Transicoes.get(i).To + "\n");
-            EscreverLog.printf("Acao: " + Contrato.Transicoes.get(i).Action + "\n\n");
+        for(int i = 0; i < c.Transicoes.size(); i++){
+            EscreverLog.printf("Do Estado: " + c.Transicoes.get(i).FromState + "\n");
+            EscreverLog.printf("Para Estado: " + c.Transicoes.get(i).ToState + "\n");
+            EscreverLog.printf("Da Parte: " + c.Transicoes.get(i).From + "\n");
+            EscreverLog.printf("Para Parte: " + c.Transicoes.get(i).To + "\n");
+            EscreverLog.printf("Acao: " + c.Transicoes.get(i).Action + "\n\n");
         }
         
         LogTXT.close();

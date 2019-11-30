@@ -38,7 +38,7 @@ contract the_matrix {
 		_;
 	}
 function showTrue(){
-
+	print("teste");
 
 }
 
@@ -48,7 +48,7 @@ function hideTrue(){
 }
 
 function redPill(){
-	print("Escolher a pilula vermelha");
+
 
 }
 

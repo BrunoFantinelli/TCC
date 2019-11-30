@@ -11,23 +11,25 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import src.Contrato;
 import src.Escrita;
-import static tela.TelaPrincipal.newPath;
 
 /**
  *
  * @author cc10848869958
  */
 public class TelaEscritaFuncoes extends javax.swing.JFrame {
-
+    Contrato contrato;
+    String novoCaminho;
     /**
      * Creates new form TelaEscritaFuncoes
      * @param contrato
      */
-    public TelaEscritaFuncoes() {
+    public TelaEscritaFuncoes(Contrato c, String newPath) {
         initComponents();
+        contrato = c;
+        novoCaminho = newPath;
         String aux = "";
-        for (int i = 0; i < Contrato.Actions.size(); i++) {
-            aux += "function " + Contrato.Actions.get(i) + "(){\n\n\n}\n\n";
+        for (int i = 0; i < c.Actions.size(); i++) {
+            aux += "function " + c.Actions.get(i) + "(){\n\n\n}\n\n";
         }
         campoEscrita.setText(aux);
     }
@@ -104,10 +106,10 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
-        Escrita.funcoes = campoEscrita.getText();
         Escrita escrita = new Escrita();
+        escrita.setFuncoes(campoEscrita.getText());
         try {
-            escrita.EscreverContrato(newPath); 
+            escrita.EscreverContrato(novoCaminho,1,contrato); 
             JOptionPane.showMessageDialog(null, "Contrato Traduzido com Sucesso.");
         } catch (IOException ex) {
             Logger.getLogger(TelaEscritaFuncoes.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,7 +151,7 @@ public class TelaEscritaFuncoes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaEscritaFuncoes().setVisible(true);
+               // new TelaEscritaFuncoes().setVisible(true);
             }
         });
     }

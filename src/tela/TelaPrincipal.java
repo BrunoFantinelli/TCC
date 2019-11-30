@@ -21,7 +21,7 @@ import src.Escrita;
  * @author bruno
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    public static String newPath;
+    public String newPath;
     Analise analise = new Analise();
     Escrita escrita = new Escrita();
     Contrato contrato;
@@ -134,12 +134,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void transformarContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transformarContratoActionPerformed
 
-        try {
-            analise.iniciarAnalise(campoPath.getText());
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Arquivo Inválido.", "Erro", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
 
         newPath = campoPath.getText().replace(".txt", ".sol");
         try {
@@ -148,12 +142,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return;
             }
             if (escritaContratos.getSelection().equals(botaoSol.getModel())) {
-                Escrita.op = 0;
-                escrita.EscreverContrato(newPath);
+                escrita.EscreverContrato(newPath, 0, analise.iniciarAnalise(campoPath.getText()));
                 JOptionPane.showMessageDialog(null, "Contrato Traduzido com Sucesso.");
             }else if((escritaContratos.getSelection().equals(botaoAgora.getModel()))){
-                Escrita.op = 1;
-                TelaEscritaFuncoes tela_escrita = new TelaEscritaFuncoes();
+                TelaEscritaFuncoes tela_escrita = new TelaEscritaFuncoes(analise.iniciarAnalise(campoPath.getText()), newPath);
                 tela_escrita.setVisible(true);
             }
             
