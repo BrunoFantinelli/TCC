@@ -13,7 +13,6 @@ import java.io.PrintWriter;
  */
 public class Analise {
     Contrato c = new Contrato();
-    Escrita e = new Escrita();
     public Contrato iniciarAnalise(String path) throws FileNotFoundException, IOException {
         
         BufferedReader br = new BufferedReader(new FileReader(path));
